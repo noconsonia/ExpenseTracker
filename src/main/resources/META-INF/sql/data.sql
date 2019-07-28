@@ -1,0 +1,6 @@
+insert into mpk (code) values ("WAWSPR")
+insert into mpk (code) values ("WAWPRO")
+insert into mpk (code) values ("WAWHR")
+insert into account (code) values ("B2Z7 pozostałe usługi obce")
+insert into payment (type) values ("Karta")
+insert into payment (type) values ("Przelew")
