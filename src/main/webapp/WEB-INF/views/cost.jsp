@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -36,12 +37,12 @@
             <th><label for="datepicker">Sales date:</label></th>
             <th><label for="mpk">Mpk:</label></th>
             <th><label for="account">Account:</label></th>
-            <th><label for="payment">Payment:</label></th>
+            <th><label for="client">Client:</label></th>
             <th><label for="amount">Net PLN:</label></th>
             <th><label for="description">Description:</label></th>
+            <th><label for="payment">Payment:</label></th>
             <th><label for="invoiceNumber">Invoice number:</label></th>
-            <th><label for="client">Client:</label></th>
-
+            <th><label for="department">Department:</label></th>
 
         </tr>
         </thead>
@@ -51,30 +52,32 @@
                 <div class="date"><form:input type="text" id="datepicker"
                                               path="salesDate" placeholder="mm/dd/yyyy"/></div>
             </td>
-            <td><form:select path="mpk.id" items="${mpk}" itemLabel="code" itemValue="id" id="mpk"/></td>
-            <td><form:select class="chosen" path="account.id" items="${account}" itemLabel="code" itemValue="id"
+            <td><form:select path="mpk" items="${mpk}" itemLabel="code" itemValue="id" id="mpk"/></td>
+            <td><form:select path="account" items="${account}" itemLabel="code" itemValue="id"
                              id="account"/></td>
-            <td><form:select path="payment.id" items="${payment}" itemLabel="type" itemValue="id" id="payment"/></td>
+            <td><form:select path="client" items="${client}" itemLabel="name" itemValue="id" id="client"/></td>
             <td><form:input path="amount" itemValue="id" id="amount"/></td>
             <td><form:textarea path="description" itemValue="id" id="description"/></td>
+            <td><form:select path="payment" items="${payment}" itemLabel="type" itemValue="id" id="payment"/></td>
             <td><form:textarea path="invoiceNumber" itemValue="id" id="invoiceNumber"/></td>
-            <td><form:select path="client.id" items="${client}" itemLabel="name" itemValue="id" id="client"/></td>
+            <td><form:select path="department" items="${department}" itemLabel="name" itemValue="id"
+                             id="department"/></td>
 
         </tr>
         </tbody>
 
         <tbody>
         <tr>
-
-            <td><form:errors path="mpk.id" element="div"/></td>
-            <td><form:errors path="account.id" element="div"/></td>
-            <td><form:errors path="payment.id" element="div"/></td>
+            <td><form:errors path="salesDate" element="div"/></td>
+            <td><form:errors path="mpk" element="div"/></td>
+            <td><form:errors path="account" element="div"/></td>
+            <td><form:errors path="client" element="div"/></td>
             <td><form:errors path="amount" element="div"/></td>
             <td><form:errors path="description" element="div"/></td>
+            <td><form:errors path="payment" element="div"/></td>
             <td><form:errors path="invoiceNumber" element="div"/></td>
-            <td><form:errors path="client.id" element="div"/></td>
+            <td><form:errors path="department" element="div"/></td>
 
-            <td></td>
         </tr>
         </tbody>
     </table>
