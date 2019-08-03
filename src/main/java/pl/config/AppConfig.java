@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,6 +16,10 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import pl.converter.AccountConverter;
+import pl.converter.ClientConverter;
+import pl.converter.MpkConverter;
+import pl.converter.PaymentConverter;
 
 
 import javax.persistence.EntityManagerFactory;
@@ -72,6 +77,41 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
+
+
+
+    @Bean
+    public AccountConverter getAccountConverter() {
+        return new AccountConverter();
+    }
+
+    @Bean
+    public MpkConverter getMpkConverter() {
+        return new MpkConverter();
+    }
+
+    @Bean
+    public PaymentConverter getPaymentConverter() {
+        return new PaymentConverter();
+    }
+
+    @Bean
+    public ClientConverter getClientConverter() {
+        return new ClientConverter();
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(getAccountConverter());
+        registry.addConverter(getMpkConverter());
+        registry.addConverter(getPaymentConverter());
+        registry.addConverter(getClientConverter());
+
+    }
+
+
+
+
 
 }
 
