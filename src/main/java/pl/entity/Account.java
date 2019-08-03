@@ -41,14 +41,6 @@ public class Account {
         this.code = code;
     }
 
-/*    public Cost getCost() {
-        return cost;
-    }
-
-    public void setCost(Cost cost) {
-        this.cost = cost;
-    }*/
-
 
     public List<Cost> getCost() {
         return cost;
@@ -58,13 +50,4 @@ public class Account {
         this.cost = cost;
     }
 
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "id=" + id +
-                ", code='" + code + '\'' +
-                ", cost=" + cost +
-                '}';
-    }
 }
