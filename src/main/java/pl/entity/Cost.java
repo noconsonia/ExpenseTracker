@@ -1,8 +1,10 @@
 package pl.entity;
 
-import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.mapping.ToOne;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -16,34 +18,34 @@ public class Cost {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
-    @OneToOne
+    @ManyToOne
     private Account account;
 
     private BigDecimal amount;
 
-    @OneToOne
+    @ManyToOne
     private Client client;
 
-    @OneToOne
+    private String salesDate;
+
+    @ManyToOne
     private Mpk mpk;
-
-    @OneToOne
-    private Payment payment;
-
-    @OneToOne
-    private User user;
-
-    private LocalDateTime salesDate;
 
     @Size(max = 150)
     private String description;
 
-    @OneToMany(mappedBy = "cost", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Department> department = new ArrayList<>();
 
-    @NotBlank
+    @ManyToOne
+    private Department department;
+
+    @ManyToOne
+    private Payment payment;
+
+    @ManyToOne
+    private User user;
+
     @Size(min = 1, max = 30)
     private String invoiceNumber;
 
@@ -54,16 +56,14 @@ public class Cost {
         created = LocalDateTime.now();
     }
 
+    // Getters Setters
 
 
-
-    // Getter Setters
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -91,12 +91,36 @@ public class Cost {
         this.client = client;
     }
 
+    public String getSalesDate() {
+        return salesDate;
+    }
+
+    public void setSalesDate(String salesDate) {
+        this.salesDate = salesDate;
+    }
+
     public Mpk getMpk() {
         return mpk;
     }
 
     public void setMpk(Mpk mpk) {
         this.mpk = mpk;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     public Payment getPayment() {
@@ -113,30 +137,6 @@ public class Cost {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public LocalDateTime getSalesDate() {
-        return salesDate;
-    }
-
-    public void setSalesDate(LocalDateTime salesDate) {
-        this.salesDate = salesDate;
-    }
-
-    public String getDesciption() {
-        return description;
-    }
-
-    public void setDesciption(String desciption) {
-        this.description = desciption;
-    }
-
-    public List<Department> getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(List<Department> department) {
-        this.department = department;
     }
 
     public String getInvoiceNumber() {

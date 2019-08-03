@@ -3,6 +3,8 @@ package pl.entity;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -12,22 +14,23 @@ public class Mpk {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @NotBlank
     private String code;
 
-    @OneToOne(mappedBy = "mpk", cascade = CascadeType.ALL)
-    private Cost cost;
-
+    @OneToMany(mappedBy = "mpk", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Cost> cost = new ArrayList<>();
 
 
     // Getters Setters
-    public long getId() {
+
+
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -39,11 +42,11 @@ public class Mpk {
         this.code = code;
     }
 
-    public Cost getCost() {
+    public List<Cost> getCost() {
         return cost;
     }
 
-    public void setCost(Cost cost) {
+    public void setCost(List<Cost> cost) {
         this.cost = cost;
     }
 }
