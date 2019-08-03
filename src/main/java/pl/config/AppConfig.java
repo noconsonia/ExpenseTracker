@@ -68,6 +68,10 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    @Override
+    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
 
 }
 
