@@ -4,34 +4,37 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.entity.Account;
-import pl.entity.Cost;
-import pl.entity.Mpk;
-import pl.entity.Payment;
-import pl.repository.AccountRepository;
-import pl.repository.CostRepository;
-import pl.repository.MpkRepository;
-import pl.repository.PaymentRepository;
+import pl.entity.*;
+import pl.repository.*;
 
 import java.util.List;
 
 @Controller
 @RequestMapping("/cost")
 public class CostController {
-
     private final CostRepository costRepository;
     private final MpkRepository mpkRepository;
     private final AccountRepository accountRepository;
     private final PaymentRepository paymentRepository;
+    private final ClientRepository clientRepository;
+    private final DepartmentRepository departmentRepository;
 
-    public CostController(CostRepository costRepository, MpkRepository mpkRepository, AccountRepository accountRepository, PaymentRepository paymentRepository) {
+    public CostController(CostRepository costRepository,
+                          MpkRepository mpkRepository,
+                          AccountRepository accountRepository,
+                          PaymentRepository paymentRepository,
+                          ClientRepository clientRepository,
+                          DepartmentRepository departmentRepository) {
         this.costRepository = costRepository;
         this.mpkRepository = mpkRepository;
         this.accountRepository = accountRepository;
         this.paymentRepository = paymentRepository;
+        this.clientRepository = clientRepository;
+        this.departmentRepository = departmentRepository;
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -41,22 +44,21 @@ public class CostController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String processForm(@ModelAttribute @Validated Cost tweet, BindingResult result) {
+    public String processForm(@ModelAttribute @Validated Cost cost, BindingResult result) {
         if (result.hasErrors()) {
             return "cost";
         }
-        costRepository.save(tweet);
-        return "redirect:list";
+        costRepository.save(cost);
+        return "redirect:all";
     }
 
 
-
-
-
-
-
-
-
+    @GetMapping("/all")
+    public String all(Model model) {
+        List<Cost> costs = costRepository.findAll();
+        model.addAttribute("costs", costs);
+        return "costlist";
+    }
 
 
 
@@ -76,4 +78,15 @@ public class CostController {
     public List<Payment> allPayment() {
         return paymentRepository.findAll();
     }
+
+    @ModelAttribute("client")
+    public List<Client> allClient() {
+        return clientRepository.findAll();
+    }
+
+    @ModelAttribute("department")
+    public List<Department> allDepartment() {
+        return departmentRepository.findAll();
+    }
+
 }
