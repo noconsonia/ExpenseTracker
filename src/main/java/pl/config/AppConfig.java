@@ -1,6 +1,5 @@
 package pl.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,10 +15,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import pl.converter.AccountConverter;
-import pl.converter.ClientConverter;
-import pl.converter.MpkConverter;
-import pl.converter.PaymentConverter;
+import pl.converter.*;
 
 
 import javax.persistence.EntityManagerFactory;
@@ -100,16 +96,19 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         return new ClientConverter();
     }
 
+    @Bean
+    public DepartmentConverter getDepartmentConverter() {
+        return new DepartmentConverter();
+    }
+
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(getAccountConverter());
         registry.addConverter(getMpkConverter());
         registry.addConverter(getPaymentConverter());
         registry.addConverter(getClientConverter());
-
+        registry.addConverter(getDepartmentConverter());
     }
-
-
 
 
 
