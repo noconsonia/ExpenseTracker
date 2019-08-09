@@ -1,8 +1,6 @@
 package pl.entity;
 
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +14,6 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotBlank
     private String code;
 
 

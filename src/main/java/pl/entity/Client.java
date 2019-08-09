@@ -1,7 +1,6 @@
 package pl.entity;
 
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.pl.NIP;
 
 import javax.persistence.*;
@@ -16,10 +15,8 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotBlank
     private String name;
 
-    @NotBlank
     @NIP
     private String nip;
 

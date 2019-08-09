@@ -1,15 +1,11 @@
 package pl.entity;
 
-import org.hibernate.mapping.ToOne;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 @Entity
@@ -23,19 +19,24 @@ public class Cost {
     @ManyToOne
     private Account account;
 
+    @NotNull(message = "Please enter a value")
+    @Digits(integer = 16, fraction = 2, message = "Invalid format. Proper format: ######.##")
     private BigDecimal amount;
+
 
     @ManyToOne
     private Client client;
 
+    @Pattern(regexp = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\\d\\d",
+            message = "Invalid format. Proper format: MM/DD/YYYY")
+    @NotBlank(message = "Please enter a date")
     private String salesDate;
 
     @ManyToOne
     private Mpk mpk;
 
-    @Size(max = 150)
+    @Size(min = 1, max = 150, message = "Please enter a value between 1 and 150")
     private String description;
-
 
     @ManyToOne
     private Department department;
@@ -46,7 +47,7 @@ public class Cost {
     @ManyToOne
     private User user;
 
-    @Size(min = 1, max = 30)
+    @Size(min = 1, max = 30, message = "Please enter a value between 1 and 30")
     private String invoiceNumber;
 
     private LocalDateTime created;
