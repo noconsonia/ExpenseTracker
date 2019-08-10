@@ -1,7 +1,10 @@
 package pl.repository;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface UserService extends UserDetailsService {
+import pl.entity.User;
 
+public interface UserService {
+    void save(User user);
+
+    User findByUsername(String username);
 }
