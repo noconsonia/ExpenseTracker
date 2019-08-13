@@ -6,5 +6,6 @@ import pl.entity.Cost;
 public interface CostRepository extends JpaRepository<Cost, Integer> {
 
     Cost findFirstById(int costId);
+    Cost deleteById(int costId);
 
 }
