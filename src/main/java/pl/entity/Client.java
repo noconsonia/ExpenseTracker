@@ -20,7 +20,7 @@ public class Client {
     @NIP
     private String nip;
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Cost> cost = new ArrayList<>();
 
 

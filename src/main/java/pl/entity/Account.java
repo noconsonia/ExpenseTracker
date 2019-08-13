@@ -17,7 +17,7 @@ public class Account {
     private String code;
 
 
-    @OneToMany(mappedBy = "account", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "account", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Cost> cost = new ArrayList<>();
 
     // Getters Setters
