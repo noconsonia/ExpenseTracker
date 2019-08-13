@@ -19,18 +19,14 @@ public class Cost {
     @ManyToOne
     private Account account;
 
+
     @NotNull(message = "Please enter a value")
+    @Column(precision=16, scale=2)
     @Digits(integer = 16, fraction = 2, message = "Invalid format. Proper format: ######.##")
     private BigDecimal amount;
 
-
     @ManyToOne
     private Client client;
-
-    @Pattern(regexp = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\\d\\d",
-            message = "Invalid format. Proper format: MM/DD/YYYY")
-    @NotBlank(message = "Please enter a date")
-    private String salesDate;
 
     @ManyToOne
     private Mpk mpk;
@@ -51,6 +47,12 @@ public class Cost {
     private String invoiceNumber;
 
     private LocalDateTime created;
+
+
+    @Pattern(regexp = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\\d\\d",
+            message = "Invalid format. Proper format: MM/DD/YYYY")
+    @NotBlank(message = "Please enter a date")
+    private String salesDate;
 
     @PrePersist
     public void prePersist() {

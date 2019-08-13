@@ -18,7 +18,7 @@ public class Department {
     @NotBlank
     private String name;
 
-    @OneToMany(mappedBy = "department", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "department", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Cost> cost = new ArrayList<>();
 
 
