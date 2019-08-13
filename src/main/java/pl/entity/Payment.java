@@ -1,7 +1,5 @@
 package pl.entity;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +13,9 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotBlank
     private String type;
 
-    @OneToMany(mappedBy = "payment", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "payment", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Cost> cost = new ArrayList<>();
 
 
