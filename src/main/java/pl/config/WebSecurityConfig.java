@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -32,10 +33,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/cost/all", true)
                 .permitAll()
                 .and()
                 .logout()
                 .permitAll()
+                .and().logout()
+                .logoutUrl("/appLogout")
                 .and()
                 .csrf().disable();
     }
