@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link href="<c:url value="../../resources/index.css" />" rel="stylesheet">
+    <link href="<c:url value="../../resources/css/index.css" />" rel="stylesheet">
 </head>
 <body>
 

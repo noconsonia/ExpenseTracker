@@ -52,13 +52,13 @@ body {
 }
 
 .form {
-    margin: 40px;
+    margin: 20px 30px;
     position: absolute;
 }
 .label {
     color:  #c2c2c5;
     display: block;
-    font-size: 14px;
+    font-size: 15px;
     height: 30px;
     margin-top: 20px;
     margin-bottom: 5px;
@@ -77,4 +77,75 @@ input {
 .redirect{
     color: #0c0c0c;
     font-size: 1.5em;
+}
+
+.submit {
+    background-color:#ffffff;
+    -moz-border-radius:14px;
+    -webkit-border-radius:14px;
+    border-radius:15px;
+    border:1px solid #8a8a8a;
+    display:inline-block;
+    cursor:pointer;
+    color:#120312;
+    font-family:Arial;
+    font-size:11px;
+    padding:5px 15px;
+    text-decoration:none;
+}
+.submit:hover {
+    background-color: #bebebe;
+    text-decoration: none;
+
+}
+.submit:active {
+    position:relative;
+    top:1px;
+    text-decoration: none;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.text {
+    color: #000000;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 15px ;
+}
+
+.submitForgot {
+    background-color:#ffffff;
+    -moz-border-radius:14px;
+    -webkit-border-radius:14px;
+    border-radius:15px;
+    border:1px solid #8a8a8a;
+    display:inline-block;
+    cursor:pointer;
+    color:#120312;
+    font-family:Arial;
+    font-size:11px;
+    padding:5px 10px;
+    text-decoration:none;
+    margin: 17px;
+
+}
+.submitForgot:hover {
+    background-color: #bebebe;
+    text-decoration: none;
+
+}
+.submitForgot:active {
+    position:relative;
+    top:1px;
+    text-decoration: none;
+
+}
+
+.resetText {
+    font-size: 30px;
+    margin: 15px ;
+    ;
 }
