@@ -1,12 +1,15 @@
 package pl.DTO;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class PasswordResetDto {
 
+    @Size(min = 4, message = "Please try one with at least 4 characters.")
     @NotBlank(message = "Please enter a password")
     private String password;
 
+    @Size(min = 4, message = "Please try one with at least 4 characters.")
     @NotBlank(message = "Please enter a password")
     private String confirmPassword;
 
