@@ -1,2 +1,2 @@
 # ExpenseTracker
-Small Business Expense Tracking Apps. In addition to adding expenses it also allows you to dowload data to xlsx report, monitor expenses thanks to reporting page and manage users accounts.
+Small Business Expense Tracking Apps. In addition to adding expenses it also allows you to download data to xlsx report, monitor expenses thanks to reporting page and manage users accounts.
