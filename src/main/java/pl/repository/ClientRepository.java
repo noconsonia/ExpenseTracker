@@ -6,6 +6,9 @@ import pl.entity.Client;
 public interface ClientRepository extends JpaRepository<Client, Integer> {
 
     Client findFirstById(int accountId);
+
+    Client deleteById(int costId);
+
 }
 
 
