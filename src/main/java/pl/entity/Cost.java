@@ -6,8 +6,6 @@ import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-
-
 @Entity
 @Table(name = "cost")
 public class Cost {
@@ -156,5 +154,10 @@ public class Cost {
 
     public void setCreated(LocalDateTime created) {
         this.created = created;
+    }
+
+    @Override
+    public String toString() {
+        return ""+amount;
     }
 }

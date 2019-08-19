@@ -1,9 +1,7 @@
 package pl.entity;
 
-
-import org.hibernate.validator.constraints.pl.NIP;
-
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +13,10 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotBlank(message = "This field is required.")
     private String name;
 
-    @NIP
+    @NotBlank(message = "This field is required.")
     private String nip;
 
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
