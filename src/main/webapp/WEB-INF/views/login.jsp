@@ -20,7 +20,7 @@
             <c:if test="${pageContext.request.userPrincipal.name == null}">
 
             <div class="login">Login</div>
-            <div class="eula">By logging in you agree to the ridiculously long terms that you didn't bother to read
+            <div class="eula">Sign in to a ExpenseTracker
             </div>
         </div>
         <div class="right">
@@ -39,9 +39,9 @@
                     <br>
                     <button class="submit" type="submit">Log In</button>
                     <br>
-                    <span>${error}</span>
+                    <span id="lblErrorLogin">${error}</span>
                     <input type="hidden" name="${csrf.parameterName}" value="${_csrf.token}"/>
-                    <br>
+                    <br><br>
                     <button class="submit"><a href="/forgot-password">Forgot Password?</a></button>
                     </c:if>
 
