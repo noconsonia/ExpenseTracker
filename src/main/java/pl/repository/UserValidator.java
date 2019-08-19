@@ -12,10 +12,16 @@ public class UserValidator implements Validator {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserRepository userRepository;
+
+
     @Override
     public boolean supports(Class<?> aClass) {
         return User.class.equals(aClass);
     }
+
+    String REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 
     @Override
     public void validate(Object o, Errors errors) {
@@ -37,5 +43,16 @@ public class UserValidator implements Validator {
         if (!user.getPasswordConfirm().equals(user.getPassword())) {
             errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
         }
+
+        if(!user.getUsername().matches(REGEX)){
+            errors.rejectValue("username", "Email.not.valid");
+        }
+
+        if(userRepository.findByUsername(user.getUsername()) == null){
+            errors.rejectValue("username", "Username.not.exist.in.database");
+
+        }
+
+
     }
 }
