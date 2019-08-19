@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
     $('#example').DataTable({
-        pageLength: 10
+        pageLength: 25
     });
 });

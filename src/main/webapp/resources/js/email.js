@@ -35,6 +35,6 @@ function ValidateEmail() {
     var lblError = document.getElementById("lblError");
     lblError.innerHTML = "";
     if (!IsValidEmail(email)) {
-        lblError.innerHTML = "Invalid email address.";
+        lblError.innerHTML = "Invalid e-mail address.";
     }
 }
