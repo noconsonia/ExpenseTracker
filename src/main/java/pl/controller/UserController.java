@@ -10,6 +10,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.DTO.PasswordResetDto;
@@ -20,8 +21,8 @@ import pl.service.EmailSenderService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
 
 
 @Controller
@@ -61,13 +62,13 @@ public class UserController {
     }
 
 
-    @RequestMapping(value="/forgot-password", method=RequestMethod.GET)
+    @RequestMapping(value = "/forgot-password", method = RequestMethod.GET)
     public String displayResetPassword(Model model) {
-       model.addAttribute("user", new User());
+        model.addAttribute("user", new User());
         return "forgotPassword";
     }
 
-    @RequestMapping(value="/forgot-password", method=RequestMethod.POST)
+    @RequestMapping(value = "/forgot-password", method = RequestMethod.POST)
     public String forgotUserPassword(@ModelAttribute("user") @Valid User user, BindingResult result) {
 
         User existingUser = userRepository.findByUsername(user.getUsername());
@@ -81,7 +82,7 @@ public class UserController {
             mailMessage.setSubject("Complete Password Reset!");
             mailMessage.setFrom("test-email@gmail.com");
             mailMessage.setText("To complete the password reset process, please click here: "
-                    + "http://localhost:8080/confirm-reset?token="+confirmationToken.getConfirmationToken());
+                    + "http://localhost:8080/confirm-reset?token=" + confirmationToken.getConfirmationToken());
 
             emailSenderService.sendEmail(mailMessage);
 
@@ -89,15 +90,15 @@ public class UserController {
 
         } else if (result.hasErrors()) {
             return "forgotPassword";
-        } else if (user == null){
+        } else if (user == null) {
             return "forgotPassword";
         }
         return "forgotPassword";
     }
 
 
-    @RequestMapping(value="/confirm-reset", method= {RequestMethod.GET})
-    public String validateResetToken(Model model, @RequestParam("token")String confirmationToken) {
+    @RequestMapping(value = "/confirm-reset", method = {RequestMethod.GET})
+    public String validateResetToken(Model model, @RequestParam("token") String confirmationToken) {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
 
         if (token != null) {
@@ -113,24 +114,24 @@ public class UserController {
 
     @Transactional
     @RequestMapping(value = "/confirm-reset", method = RequestMethod.POST)
-    public String resetUserPassword(@RequestParam("token")String confirmationToken, @Valid @ModelAttribute("passwordResetForm") PasswordResetDto form) {
+    public String resetUserPassword(@RequestParam("token") String confirmationToken, @Valid @ModelAttribute("passwordResetForm") PasswordResetDto form) {
 
-            ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
-            User user = token.getUser();
+        ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
+        User user = token.getUser();
 
-            String updatedPassword = bCryptPasswordEncoder.encode(form.getPassword());
+        String updatedPassword = bCryptPasswordEncoder.encode(form.getPassword());
 
-            userService.updatePassword(updatedPassword, user.getId());
+        userService.updatePassword(updatedPassword, user.getId());
 
 
         return "redirect:/login";
     }
 
 
-    @RequestMapping(value="/logout", method = RequestMethod.GET)
-    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null){
+        if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/login?logout";
@@ -138,8 +139,12 @@ public class UserController {
 
 
     @GetMapping(value = "user/profile")
-    public String showinfo() {
-        return "userprofile";
+    public String showinfo(HttpSession session, HttpServletRequest request, ModelMap modelMap) {
+        Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (request.isUserInRole("ROLE_ADMIN")) {
+            return "adminprofile";
+        } else {
+            return "userprofile";
+        }
     }
-
 }

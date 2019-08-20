@@ -6,12 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.entity.Role;
 import pl.entity.User;
-import pl.repository.SecurityService;
-import pl.repository.UserRepository;
-import pl.repository.UserService;
-import pl.repository.UserValidator;
+import pl.repository.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -23,10 +22,11 @@ public class AdminController {
     private UserService userService;
 
     @Autowired
-    private SecurityService securityService;
+    private UserValidator userValidator;
 
     @Autowired
-    private UserValidator userValidator;
+    private RoleRepository roleRepository;
+
 
     public AdminController(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -35,7 +35,6 @@ public class AdminController {
     @GetMapping("/adduser")
     public String registration(Model model) {
         model.addAttribute("user", new User());
-
         return "user";
     }
 
@@ -44,14 +43,10 @@ public class AdminController {
         userValidator.validate(user, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "user";
         }
-
         userService.save(user);
-
-        securityService.autoLogin(user.getUsername(), user.getPasswordConfirm());
-
-        return "redirect:/all";
+        return "redirect:/admin/all";
     }
 
 
@@ -65,5 +60,39 @@ public class AdminController {
         return userRepository.findAll();
     }
 
+
+    @ModelAttribute("userWithRole")
+    public List<User> allUserWithRole() {
+        return userRepository.findByUserWithRole();
+    }
+
+
+    @RequestMapping(value = "/delete-user/{id}", method = RequestMethod.GET)
+    public String delete(@PathVariable int id) {
+        userRepository.deleteById(id);
+        return "redirect:/admin/all";
+    }
+
+    @ModelAttribute("role")
+    public List<Role> allRole() {
+        return roleRepository.findAll();
+    }
+
+
+
+    @GetMapping("/update-user/{id}")
+    public String updateUserGet(Model model,@PathVariable int id){
+        model.addAttribute("user", userRepository.findById(id));
+        return "user";
+    }
+
+    @PostMapping("/update-user/{id}")
+    public String updateUserPost(@PathVariable int id, @Valid User user, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "user";
+        }
+        userRepository.save(user);
+        return "redirect:/admin/all";
+    }
 
 }

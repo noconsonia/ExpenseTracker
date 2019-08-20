@@ -37,7 +37,6 @@ public class ClientController {
         return "redirect:/client/all";
     }
 
-
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String showAllClient() {
         return "clientlist";
@@ -65,6 +64,4 @@ public class ClientController {
         return "redirect:http://localhost:8080/client/all";
 
     }
-
-
 }
