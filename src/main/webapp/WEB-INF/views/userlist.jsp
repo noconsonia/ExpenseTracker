@@ -10,7 +10,7 @@
     <script>
         function confirmDelete(id) {
             if (confirm("Are you sure to delete this user?")) {
-                window.location.href = "/user/delete/" + id;
+                window.location.href = "/admin/delete-user/" + id;
             }
         }
     </script>
@@ -23,23 +23,28 @@
 <table id="example" class="display">
     <thead>
     <tr>
-        <th>ID</th>
+
         <th>User</th>
+        <th>Role</th>
+        <th>Delete</th>
 
 
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="user" items="${users}">
+    <c:forEach var="user" items="${userWithRole}">
         <tr>
-            <td>${user.id}</td>
+
             <td>${user.username}</td>
+            <td>${user.roles}</td>
+
             <td><a href="#" onclick="confirmDelete(${user.id}, '${user.id}')">Delete</a></td>
-            <td><a href="/user/update/${user.id}">Edit</a></td>
 
 
         </tr>
     </c:forEach>
+
+
     </tbody>
 </table>
 
