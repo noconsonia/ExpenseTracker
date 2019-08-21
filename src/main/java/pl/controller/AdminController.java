@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import pl.entity.Role;
 import pl.entity.User;
 import pl.repository.*;
+import pl.validation.UserValidator;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -62,7 +62,7 @@ public class AdminController {
 
 
     @ModelAttribute("userWithRole")
-    public List<User> allUserWithRole() {
+    public List<Object[]> allUserWithRole() {
         return userRepository.findByUserWithRole();
     }
 
@@ -78,21 +78,5 @@ public class AdminController {
         return roleRepository.findAll();
     }
 
-
-
-    @GetMapping("/update-user/{id}")
-    public String updateUserGet(Model model,@PathVariable int id){
-        model.addAttribute("user", userRepository.findById(id));
-        return "user";
-    }
-
-    @PostMapping("/update-user/{id}")
-    public String updateUserPost(@PathVariable int id, @Valid User user, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            return "user";
-        }
-        userRepository.save(user);
-        return "redirect:/admin/all";
-    }
 
 }
