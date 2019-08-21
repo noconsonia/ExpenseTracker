@@ -6,9 +6,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.entity.*;
 import pl.repository.*;
-
 import javax.validation.Valid;
 import java.util.List;
+
 
 @Controller
 @RequestMapping("/cost")
@@ -70,12 +70,11 @@ public class CostController {
         }
         costRepository.save(cost);
         return "redirect:http://localhost:8080/cost/all";
-
     }
 
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public String showAllUsers() {
+    public String showAllCost() {
         return "costlist";
     }
 
@@ -108,5 +107,38 @@ public class CostController {
     @ModelAttribute("allcosts")
     public List<Cost> allCost() {
         return costRepository.findAll();
+    }
+
+    @RequestMapping(value = "/report-department", method = RequestMethod.GET)
+    public String reportbyDepartment() {
+        return "reportDepartment";
+    }
+
+    @RequestMapping(value = "/report-client", method = RequestMethod.GET)
+    public String reportbyClient() {
+        return "reportClient";
+    }
+
+    @RequestMapping(value = "/report-mpk", method = RequestMethod.GET)
+    public String reportbyMpk() {
+        return "reportMpk";
+    }
+
+    @ModelAttribute("allcostsbyDepartment")
+    public List<Object[]> allCostbyDepartment() {
+        List<Object[]> resultList = costRepository.getGroupByDepartment();
+        return resultList;
+    }
+
+    @ModelAttribute("allcostsbyClient")
+    public List<Object[]> allCostbyClient() {
+        List<Object[]> resultList = costRepository.getGroupByClient();
+        return resultList;
+    }
+
+    @ModelAttribute("allcostsbyMpk")
+    public List<Object[]> allCostbyMpk() {
+        List<Object[]> resultList = costRepository.getGroupByMpk();
+        return resultList;
     }
 }
