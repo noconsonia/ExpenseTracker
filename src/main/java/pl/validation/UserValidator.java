@@ -1,4 +1,4 @@
-package pl.repository;
+package pl.validation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -6,14 +6,12 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 import pl.entity.User;
+import pl.repository.UserService;
 
 @Component
 public class UserValidator implements Validator {
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private UserRepository userRepository;
 
 
     @Override
@@ -46,11 +44,6 @@ public class UserValidator implements Validator {
 
         if(!user.getUsername().matches(REGEX)){
             errors.rejectValue("username", "Email.not.valid");
-        }
-
-        if(userRepository.findByUsername(user.getUsername()) == null){
-            errors.rejectValue("username", "Username.not.exist.in.database");
-
         }
 
 
