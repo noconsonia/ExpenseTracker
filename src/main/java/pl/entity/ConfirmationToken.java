@@ -9,10 +9,10 @@ public class ConfirmationToken {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="token_id")
+    @Column(name = "token_id")
     private long tokenid;
 
-    @Column(name="confirmation_token")
+    @Column(name = "confirmation_token")
     private String confirmationToken;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -30,9 +30,7 @@ public class ConfirmationToken {
     public ConfirmationToken() {
     }
 
-
-
-// getters and setters
+    // Getters and setters
 
     public long getTokenid() {
         return tokenid;
