@@ -25,7 +25,7 @@ public class ExcelCostListReportView extends AbstractXlsView {
         Row header = sheet.createRow(0);
         header.createCell(0).setCellValue("ID");
         header.createCell(1).setCellValue("Date");
-        header.createCell(2).setCellValue("MPK");
+        header.createCell(2).setCellValue("Cost Center");
         header.createCell(3).setCellValue("Account");
         header.createCell(4).setCellValue("Client");
         header.createCell(5).setCellValue("Amount");
