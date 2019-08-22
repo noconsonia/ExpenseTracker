@@ -18,6 +18,7 @@ import pl.entity.ConfirmationToken;
 import pl.entity.User;
 import pl.repository.*;
 import pl.service.EmailSenderService;
+import pl.validation.PasswordResetDtoValidator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,6 +43,9 @@ public class UserController {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    private PasswordResetDtoValidator passwordResetDtoValidator;
 
 
     @ModelAttribute("passwordResetForm")
@@ -114,16 +118,19 @@ public class UserController {
 
     @Transactional
     @RequestMapping(value = "/confirm-reset", method = RequestMethod.POST)
-    public String resetUserPassword(@RequestParam("token") String confirmationToken, @Valid @ModelAttribute("passwordResetForm") PasswordResetDto form) {
+    public String resetUserPassword(@RequestParam("token") String confirmationToken, @Valid @ModelAttribute("passwordResetForm") PasswordResetDto form, BindingResult bindingResult) {
+
 
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
         User user = token.getUser();
 
+        passwordResetDtoValidator.validate(form, bindingResult);
+        if (bindingResult.hasErrors()) {
+            return "resetPassword";
+        }
+
         String updatedPassword = bCryptPasswordEncoder.encode(form.getPassword());
-
         userService.updatePassword(updatedPassword, user.getId());
-
-
         return "redirect:/login";
     }
 
@@ -140,7 +147,6 @@ public class UserController {
 
     @GetMapping(value = "user/profile")
     public String showinfo(HttpSession session, HttpServletRequest request, ModelMap modelMap) {
-        Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (request.isUserInRole("ROLE_ADMIN")) {
             return "adminprofile";
         } else {

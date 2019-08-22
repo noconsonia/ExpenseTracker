@@ -41,6 +41,7 @@ public class CostController {
         return "cost";
     }
 
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String processForm(@ModelAttribute @Valid Cost cost, BindingResult result) {
         if (result.hasErrors()) {
