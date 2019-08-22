@@ -11,7 +11,7 @@ public class ClientConverter implements Converter<String, Client> {
     private ClientRepository clientRepository;
 
     @Override
-    public Client convert(String s){
+    public Client convert(String s) {
         return clientRepository.findFirstById(Integer.parseInt(s));
     }
 }

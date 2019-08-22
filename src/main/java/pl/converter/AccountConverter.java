@@ -11,7 +11,7 @@ public class AccountConverter implements Converter<String, Account> {
     private AccountRepository accountRepository;
 
     @Override
-    public Account convert(String s){
+    public Account convert(String s) {
         return accountRepository.findFirstById(Integer.parseInt(s));
     }
 }
