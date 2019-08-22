@@ -19,7 +19,7 @@ public class Cost {
 
 
     @NotNull(message = "Please enter a value")
-    @Column(precision=16, scale=2)
+    @Column(precision = 16, scale = 2)
     @Digits(integer = 16, fraction = 2, message = "Invalid format. Proper format: ######.##")
     private BigDecimal amount;
 
@@ -158,6 +158,6 @@ public class Cost {
 
     @Override
     public String toString() {
-        return ""+amount;
+        return "" + amount;
     }
 }

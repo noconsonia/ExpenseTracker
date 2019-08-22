@@ -2,6 +2,7 @@ package pl.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +14,11 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Size(min = 1, max = 150, message = "Please enter a value between 1 and 4")
     @NotBlank(message = "This field is required.")
     private String name;
 
+    @Size(min = 1, max = 150, message = "Please enter a value between 1 and 4")
     @NotBlank(message = "This field is required.")
     private String nip;
 
