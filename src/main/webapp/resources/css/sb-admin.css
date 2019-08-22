@@ -119,7 +119,7 @@ a {
 
 a:hover {
     color: #0056b3;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -176,7 +176,7 @@ optgroup,
 textarea {
     margin: 0;
     font-family: inherit;
-    font-size: inherit;
+    font-size: 13px;
     line-height: inherit;
 }
 
@@ -1525,4 +1525,5 @@ body {
     width: 90%;
     margin-top: 50px;
     margin-left: 50px;
+    margin-bottom: 40px;
 }

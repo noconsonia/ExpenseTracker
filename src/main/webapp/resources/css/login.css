@@ -122,6 +122,14 @@ a {
     margin: 15px;
 }
 
+.texterror{
+    color: #000000;
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 15px;
+    color: red;
+}
+
 .submitForgot {
     background-color: #ffffff;
     -moz-border-radius: 14px;
