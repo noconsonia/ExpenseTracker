@@ -49,7 +49,7 @@
                         <br><br><br><br>
                         <p1 class="redirect">Welcome ${pageContext.request.userPrincipal.name}!</p1>
                         <br>
-                        <p1>You will be redirected to /cost/all after 3 seconds.</p1>
+                        <p1>You will be redirected to MainPage after 3 seconds.</p1>
                         <meta http-equiv="refresh" content="2 ;URL=http://localhost:8080/cost/all">
                     </c:if>
                 </div>
