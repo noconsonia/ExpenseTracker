@@ -19,22 +19,20 @@
             </div>
         </form>
 
-        <!-- Navbar -->
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="userName">${pageContext.request.userPrincipal.name}</li>
             <li class="nav-item dropdown no-arrow mx-1">
                 <a class="button" href="/user/profile">Profile</a>
             </li>
             <li class="nav-item dropdown no-arrow mx-1">
-                <input class = "button" type="submit" value="Logout"/>
+                <input class="button" type="submit" value="Logout"/>
             </li>
-
-
         </ul>
 
     </nav>
 </form>
-<nav >Hello ${pageContext.request.userPrincipal.name}! </nav><br>
-<button class="submitForgot"><a href="/cost/all">Back to Main Page?</a></button>
+<nav style="margin-left: 50px">Hello ${pageContext.request.userPrincipal.name}!</nav>
+<br>
+<button class="submit" style="margin-left: 50px"><a href="/cost/all">Back to Main Page?</a></button>
 </body>
 </html>
