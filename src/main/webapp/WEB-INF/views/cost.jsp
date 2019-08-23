@@ -39,7 +39,7 @@
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="userName">${pageContext.request.userPrincipal.name}</li>
             <li class="nav-item dropdown no-arrow mx-1">
-                <a class="button" href="/user">Profile</a>
+                <a class="button" href="/user/profile">Profile</a>
             </li>
             <li class="nav-item dropdown no-arrow mx-1">
                 <input class="button" type="submit" value="Logout"/>
@@ -58,7 +58,7 @@
             <thead>
             <tr>
                 <th><label for="datepicker">Sales date:</label></th>
-                <th><label for="mpk">Mpk:</label></th>
+                <th><label for="mpk">Cost Center:</label></th>
                 <th><label for="account">Account:</label></th>
                 <th><label for="client">Client:</label></th>
                 <th><label for="amount">Net PLN:</label></th>
@@ -85,7 +85,7 @@
                 <td><form:textarea path="invoiceNumber" itemValue="id" id="invoiceNumber"/></td>
                 <td><form:select path="department" items="${department}" itemLabel="name" itemValue="id"
                                  id="department"/></td>
-                
+
             </tr>
             </tbody>
 

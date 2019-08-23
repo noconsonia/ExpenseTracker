@@ -22,14 +22,18 @@
         <div class="left">
 
             <form method="POST" action="${contextPath}/forgot-password" class="form-signin">
-                <p1 class = resetText>Reset Your Password</p1><br><br>
+                <p1 class=resetText>Reset Your Password</p1>
+                <br><br>
                 <label class="text">Please enter your email address below</label>
                 <label class="text"> and we will send you information to change</label>
                 <label class="text">your password.</label>
                 <form:form method="post" modelAttribute="user">
-                    <form:input cssClass="text" id="txtEmail" path="username" type="text"  placeholder="E-mail" autofocus="true"/>
-               <form:errors id="lblError" path="username" element="div"/>
-                    <button class="submitForgot" type="submit" id="btnValidate" value="Submit" onclick="ValidateEmail()">Send</button>
+                    <form:input cssClass="text" id="txtEmail" path="username" type="text" placeholder="E-mail"
+                                autofocus="true"/>
+                    <form:errors id="lblError" path="username" element="div"/>
+                    <button class="submitForgot" type="submit" id="btnValidate" value="Submit"
+                            onclick="ValidateEmail()">Send
+                    </button>
                 </form:form>
                 <label id="lblError"></label><br>
                 <button class="submitForgot"><a href="/login">Back to Login?</a></button>

@@ -18,7 +18,6 @@
             </div>
         </form>
 
-        <!-- Navbar -->
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="userName">${pageContext.request.userPrincipal.name}</li>
             <li class="nav-item dropdown no-arrow mx-1">
