@@ -11,7 +11,6 @@
     <script type="text/javascript" src="../../resources/js/hightables.min.js"></script>
 
 
-
 </head>
 <body id="page-top">
 <form action="${pageContext.request.contextPath}/appLogout" method="POST">
@@ -35,7 +34,7 @@
                 <a class="button" href="/user/profile">Profile</a>
             </li>
             <li class="nav-item dropdown no-arrow mx-1">
-                <input class = "button" type="submit" value="Logout"/>
+                <input class="button" type="submit" value="Logout"/>
             </li>
 
 
@@ -68,7 +67,7 @@
                 <h6 class="dropdown-header">Action:</h6>
                 <a class="dropdown-item" href="/cost/report-client">Client</a>
                 <a class="dropdown-item" href="/cost/report-department">Department</a>
-                <a class="dropdown-item" href="/cost/report-mpk">MPK</a>
+                <a class="dropdown-item" href="/cost/report-mpk">Cost Center</a>
             </div>
         </li>
         <li class="nav-item">
@@ -82,30 +81,30 @@
                 <span>Clients</span></a>
         </li>
     </ul>
-<div class="chart">
-<table class="render-to-line-chart" data-order="descending">
-    <thead>
-    <tr>
+    <div class="chart">
+        <table class="render-to-line-chart" data-order="descending">
+            <thead>
+            <tr>
 
-        <th>Department</th>
-        <th>Net PLN</th>
+                <th>Department</th>
+                <th>Net PLN</th>
 
-    </tr>
-    </thead>
-    <tbody>
+            </tr>
+            </thead>
+            <tbody>
 
-    <c:forEach var="costs" items="${allcostsbyDepartment}">
+            <c:forEach var="costs" items="${allcostsbyDepartment}">
 
-        <tr>
-            <td>${costs[0]}</td>
-            <td>${costs[1]}</td>
-        </tr>
-    </c:forEach>
+                <tr>
+                    <td>${costs[0]}</td>
+                    <td>${costs[1]}</td>
+                </tr>
+            </c:forEach>
 
 
-    </tbody>
-</table>
-</div>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 <script src="../../resources/js/bootstrap.bundle.min.js"></script>

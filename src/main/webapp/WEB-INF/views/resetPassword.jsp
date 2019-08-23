@@ -15,10 +15,11 @@
 
                     <label class="text">Password:</label>
                     <form:password path="password" cssClass="text" itemValue="id" id="password" placeholder="Password" autofocus="true"/>
+                    <td><form:errors cssClass="texterror" path="password" element="div"/></td>
                     <label class="text">Confirm Password</label>
-                    <form:password path="confirmPassword" cssClass="text" itemValue="id" id="password" placeholder="Confirm Password" autofocus="true"/>
+                    <form:password path="confirmPassword"  cssClass="text" itemValue="id" id="password" placeholder="Confirm Password" autofocus="true"/>
                     <button class="submitForgot" >Send</button>
-
+                    <td><form:errors cssClass="texterror" path="confirmPassword" element="div"/></td>
                 </form:form>
             </div>
         </div>

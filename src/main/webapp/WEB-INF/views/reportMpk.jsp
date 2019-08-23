@@ -11,7 +11,6 @@
     <script type="text/javascript" src="../../resources/js/hightables.min.js"></script>
 
 
-
 </head>
 <body id="page-top">
 <form action="${pageContext.request.contextPath}/appLogout" method="POST">
@@ -35,7 +34,7 @@
                 <a class="button" href="/user/profile">Profile</a>
             </li>
             <li class="nav-item dropdown no-arrow mx-1">
-                <input class = "button" type="submit" value="Logout"/>
+                <input class="button" type="submit" value="Logout"/>
             </li>
 
 
@@ -45,7 +44,6 @@
 </form>
 <div id="wrapper">
 
-    <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
             <a class="nav-link" href="/cost/all">
@@ -101,8 +99,6 @@
                     <td>${costs[1]}</td>
                 </tr>
             </c:forEach>
-
-
             </tbody>
         </table>
     </div>
