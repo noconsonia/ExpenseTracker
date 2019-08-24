@@ -25,9 +25,8 @@
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <div class="input-group">
             </div>
-        </form>
 
-        <!-- Navbar -->
+
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="userName">${pageContext.request.userPrincipal.name}</li>
             <li class="nav-item dropdown no-arrow mx-1">
@@ -41,7 +40,7 @@
         </ul>
 
     </nav>
-</form>
+
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -106,6 +105,7 @@
         </table>
     </div>
 </div>
+</form>
 </body>
 <script src="../../resources/js/bootstrap.bundle.min.js"></script>
 <script src="../../resources/js/jquery.easing.min.js"></script>

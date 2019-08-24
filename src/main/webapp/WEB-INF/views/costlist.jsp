@@ -36,7 +36,7 @@
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <div class="input-group">
             </div>
-        </form>
+
 
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="userName">${pageContext.request.userPrincipal.name}</li>
@@ -148,6 +148,7 @@
         </div>
     </div>
 </form>
+
 </body>
 <script src="../../resources/js/bootstrap.bundle.min.js"></script>
 <script src="../../resources/js/jquery.easing.min.js"></script>
