@@ -16,7 +16,7 @@ The main technologies involved in my project are:
 
 ## Project Functions:
 Main Page: 
-<img src="https://i.ibb.co/rb8vqYp/Zrzut-ekranu-2019-08-23-o-18-44-04.png" alt="Zrzut-ekranu-2019-08-23-o-18-44-04" border="0">
+<img src="https://i.ibb.co/vPDgHMY/Zrzut-ekranu-2019-08-24-o-21-58-19.png" alt="Zrzut-ekranu-2019-08-24-o-21-58-19" border="0">
 
 Login:
 <img src="https://i.ibb.co/LSqMWdZ/Zrzut-ekranu-2019-08-23-o-18-45-24.png" alt="Zrzut-ekranu-2019-08-23-o-18-45-24" border="0">
