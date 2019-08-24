@@ -3,13 +3,13 @@
 ExpenseTracker is small business expenses tracking app. In addition to adding expenses it also allows you to download data to xlsx report, manage users accounts and monitor expenses thanks to reporting pages.
 ## Technologies
 The main technologies involved in my project are:
-* Maven
 * Spring MVC
 * Spring Security
 * Hibernate
 * Bootstrap 
 * Javascript
 * MySQL
+* Maven
 
 ## Project Structure:
 <img src="https://i.ibb.co/xmnbymy/Zrzut-ekranu-2019-08-24-o-20-54-02.png" alt="Zrzut-ekranu-2019-08-24-o-20-54-02" border="0">
