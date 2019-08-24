@@ -823,7 +823,7 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-    color: #495057;
+    color: #fffdfe;
     background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff;
 }
@@ -853,20 +853,7 @@ input[type="button"].btn-block {
     padding: 0.5rem 1rem;
 }
 
-.navbar > .container,
-.navbar > .container-fluid {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
+
 
 .navbar-nav {
     display: -webkit-box;
@@ -887,106 +874,6 @@ input[type="button"].btn-block {
     padding-bottom: 0.5rem;
 }
 
-
-@media (min-width: 992px) {
-    .navbar-expand-lg {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
-    }
-
-    .navbar-expand-lg .navbar-nav {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-    }
-
-    .navbar-expand-lg .navbar-nav .dropdown-menu {
-        position: absolute;
-    }
-
-    .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
-    }
-
-    .navbar-expand-lg > .container,
-    .navbar-expand-lg > .container-fluid {
-        -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-    }
-
-    .navbar-expand-lg .navbar-collapse {
-        display: -webkit-box !important;
-        display: -ms-flexbox !important;
-        display: flex !important;
-        -ms-flex-preferred-size: auto;
-        flex-basis: auto;
-    }
-
-    .navbar-expand-lg .navbar-toggler {
-        display: none;
-    }
-}
-
-@media (max-width: 1199.98px) {
-    .navbar-expand-xl > .container,
-    .navbar-expand-xl > .container-fluid {
-        padding-right: 0;
-        padding-left: 0;
-    }
-}
-
-@media (min-width: 1200px) {
-    .navbar-expand-xl {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
-    }
-
-    .navbar-expand-xl .navbar-nav {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-    }
-
-    .navbar-expand-xl .navbar-nav .dropdown-menu {
-        position: absolute;
-    }
-
-    .navbar-expand-xl .navbar-nav .nav-link {
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
-    }
-
-    .navbar-expand-xl > .container,
-    .navbar-expand-xl > .container-fluid {
-        -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-    }
-
-    .navbar-expand-xl .navbar-collapse {
-        display: -webkit-box !important;
-        display: -ms-flexbox !important;
-        display: flex !important;
-        -ms-flex-preferred-size: auto;
-        flex-basis: auto;
-    }
-
-    .navbar-expand-xl .navbar-toggler {
-        display: none;
-    }
-}
 
 .navbar-expand {
     -webkit-box-orient: horizontal;
@@ -1291,7 +1178,7 @@ body {
 .sidebar {
     width: 70px !important;
     background-color: #474A59;
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - 20px);
 }
 
 
@@ -1336,7 +1223,7 @@ body {
         display: block;
         width: 100%;
         text-align: left;
-        padding: 1rem;
+        padding: 1.5rem;
         width: 225px;
     }
 
@@ -1526,4 +1413,9 @@ body {
     margin-top: 50px;
     margin-left: 50px;
     margin-bottom: 40px;
+}
+
+
+.form {
+    height: 200px;
 }
