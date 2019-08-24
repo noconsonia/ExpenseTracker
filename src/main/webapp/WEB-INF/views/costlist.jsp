@@ -23,7 +23,7 @@
 
 
 </head>
-<body id="page-top">
+<form id="page-top">
 <form action="${pageContext.request.contextPath}/appLogout" method="POST">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
@@ -148,7 +148,7 @@
         </div>
     </div>
 </form>
-
+</form>
 </body>
 <script src="../../resources/js/bootstrap.bundle.min.js"></script>
 <script src="../../resources/js/jquery.easing.min.js"></script>

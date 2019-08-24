@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<form>
 <head>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -12,7 +12,7 @@
 
 
 </head>
-<body id="page-top">
+<form id="page-top">
 <form action="${pageContext.request.contextPath}/appLogout" method="POST">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
@@ -43,7 +43,6 @@
 
 <div id="wrapper">
 
-    <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
             <a class="nav-link" href="/cost/all">
