@@ -21,7 +21,7 @@
 
         <div class="role">
             <div class="block"></div>
-            <p>Travel, Expense & Invoice Made Easy</p>
+            <p>Expense & Invoice Made Easy</p>
         </div>
 
         <div class="login">
