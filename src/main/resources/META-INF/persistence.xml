@@ -11,7 +11,7 @@
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="coderslab"/>-->
 
-            <property name="javax.persistence.jdbc.url" value="ljdbc:mysql://remotemysql.com/b99c1498156db7?reconnect=true" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://remotemysql.com/b99c1498156db7?reconnect=true" />
             <property name="javax.persistence.jdbc.user" value="b99c1498156db7"/>
             <property name="javax.persistence.jdbc.password" value="fb864474"/>
 
