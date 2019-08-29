@@ -61,7 +61,7 @@ public class ClientController {
             return "client";
         }
         clientRepository.save(client);
-        return "redirect:http://localhost:8080/client/all";
+        return "redirect:https://app-expensetracker.herokuapp.com/client/all";
 
     }
 }

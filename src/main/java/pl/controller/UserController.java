@@ -48,6 +48,8 @@ public class UserController {
     private PasswordResetDtoValidator passwordResetDtoValidator;
 
 
+
+
     @ModelAttribute("passwordResetForm")
     public PasswordResetDto passwordReset() {
         return new PasswordResetDto();
@@ -86,7 +88,7 @@ public class UserController {
             mailMessage.setSubject("Complete Password Reset!");
             mailMessage.setFrom("test-email@gmail.com");
             mailMessage.setText("To complete the password reset process, please click here: "
-                    + "http://localhost:8080/confirm-reset?token=" + confirmationToken.getConfirmationToken());
+                    + "https://app-expensetracker.herokuapp.com/confirm-reset?token=" + confirmationToken.getConfirmationToken());
 
             emailSenderService.sendEmail(mailMessage);
 
@@ -153,4 +155,7 @@ public class UserController {
             return "userprofile";
         }
     }
+
+
+
 }

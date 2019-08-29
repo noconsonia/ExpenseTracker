@@ -56,7 +56,7 @@ public class CostController {
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String delete(@PathVariable int id) {
         costRepository.deleteById(id);
-        return "redirect:http://localhost:8080/cost/all";
+        return "redirect:https://app-expensetracker.herokuapp.com/cost/all";
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
@@ -71,7 +71,7 @@ public class CostController {
             return "cost";
         }
         costRepository.save(cost);
-        return "redirect:http://localhost:8080/cost/all";
+        return "redirect:https://app-expensetracker.herokuapp.com/cost/all";
     }
 
 
