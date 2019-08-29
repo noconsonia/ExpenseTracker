@@ -11,7 +11,7 @@
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="coderslab"/>-->
 
-            <property name="javax.persistence.jdbc.url" value="mysql://b99c1498156db7:fb864474@us-cdbr-east.cleardb.com/heroku_41945f17d7cd3c5?reconnect=true" />
+            <property name="javax.persistence.jdbc.url" value="mysql://b99c1498156db7:fb864474@eu-cdbr-west-02.cleardb.net/heroku_41945f17d7cd3c5?reconnect=true" />
             <property name="javax.persistence.jdbc.user" value="b99c1498156db7"/>
             <property name="javax.persistence.jdbc.password" value="fb864474"/>
 
