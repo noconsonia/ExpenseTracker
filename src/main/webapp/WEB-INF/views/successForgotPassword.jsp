@@ -21,7 +21,7 @@
                 <br><br>
                 <label class="text">You will be redirected to Login page after </label>
                 <label class="text">5 seconds.</label>
-                <meta http-equiv="refresh" content="5 ;URL=http://localhost:8080/login">
+                <meta http-equiv="refresh" content="5 ;URL=https://app-expensetracker.herokuapp.com/login">
             </form>
         </div>
     </div>

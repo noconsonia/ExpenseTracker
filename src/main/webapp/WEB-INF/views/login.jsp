@@ -50,7 +50,7 @@
                         <p1 class="redirect">Welcome ${pageContext.request.userPrincipal.name}!</p1>
                         <br>
                         <p1>You will be redirected to MainPage after 3 seconds.</p1>
-                        <meta http-equiv="refresh" content="2 ;URL=http://localhost:8080/cost/all">
+                        <meta http-equiv="refresh" content="2 ;URL=https://app-expensetracker.herokuapp.com/cost/all">
                     </c:if>
                 </div>
             </form>
