@@ -115,8 +115,8 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         mailSender.setHost("smtp.sendgrid.net");
         mailSender.setPort(587);
 
-        mailSender.setUsername("app144378148@heroku.com");
-        mailSender.setPassword("6malkfwi0613");
+        mailSender.setUsername("xxx");
+        mailSender.setPassword("xxx");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
