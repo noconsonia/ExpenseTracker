@@ -6,9 +6,7 @@
 </head>
 <body id="page-top">
 <form action="${pageContext.request.contextPath}/appLogout" method="POST">
-
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
         <a class="navbar-brand mr-1" href="/cost/all">ExpenseTracker</a>
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
             <i class="fas fa-bars"></i>
@@ -18,7 +16,6 @@
             <div class="input-group">
             </div>
         </form>
-
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="userName">${pageContext.request.userPrincipal.name}</li>
             <li class="nav-item dropdown no-arrow mx-1">
@@ -28,7 +25,6 @@
                 <input class="button" type="submit" value="Logout"/>
             </li>
         </ul>
-
     </nav>
 </form>
 <nav style="margin-left: 50px">Hello ${pageContext.request.userPrincipal.name}!</nav>
