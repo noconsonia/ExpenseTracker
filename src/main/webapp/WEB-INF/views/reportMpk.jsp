@@ -82,10 +82,8 @@
         <table class="render-to-area-chart" data-order="descending">
             <thead>
             <tr>
-
                 <th>Cost Center</th>
                 <th>Net PLN</th>
-
             </tr>
             </thead>
             <tbody>
