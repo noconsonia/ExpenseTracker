@@ -117,6 +117,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
         mailSender.setUsername("xxx");
         mailSender.setPassword("xxx");
+        
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
